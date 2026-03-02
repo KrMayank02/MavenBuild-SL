@@ -1,16 +1,41 @@
 #   Course-End Project: GitHub Actions Insured Assurance
 
-Objective: To create a GitHub Actions CI/CD pipeline workflow for invoking the deployment of a Java application as a Jenkins job using Tomcat Apache.
+**Objective: ** To create a GitHub Actions CI/CD pipeline workflow for invoking the deployment of a Java application as a Jenkins job using Tomcat Apache.
+
+**Real-time Scenario:**
+
+Insured Assurance, a leading global insurance provider based in the US, offers a range of products including home, health, car, and life insurance.
+The company is transitioning to a DevOps architecture and aims to automate code builds and deployments across various environments. To meet this
+need, it has adopted GitHub Actions for code checkout, building, and testing automation and Jenkins for continuous deployment.
+As a DevOps engineer at Insured Assurance, you are tasked with implementing a CI/CD pipeline using GitHub Actions and Jenkins.
 
 Tools, Server Used in This Project:
 
 •	Jenkins -> for continuous Deployment job
+
 •	Maven -> for continuous build
+
 •	Tomcat Apache -> Webserver
+
 •	Github Actions -> for creating CICD workflow
 
 
-Project Implementation Steps:
+**Tasks**
+
+The following tasks outline the process of implementing CI/CD using GitHub Actions and Jenkins:
+
+1. Create a code repository on GitHub
+   
+2. Create a GitHub Actions pipeline to perform continuous integration
+ 
+3. Configure Tomcat Apache for automated code deployment
+ 
+4. Integrate the GitHub Actions pipeline to invoke the Jenkins pipeline
+ 
+5. Invoke pipeline to validate automated deployment
+
+
+**Project Implementation Steps:**
 
 JAVA Code repository on GitHub:
 
