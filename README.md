@@ -3,6 +3,7 @@
 Objective: To create a GitHub Actions CI/CD pipeline workflow for invoking the deployment of a Java application as a Jenkins job using Tomcat Apache.
 
 Tools, Server Used in This Project:
+
 •	Jenkins -> for continuous Deployment job
 •	Maven -> for continuous build
 •	Tomcat Apache -> Webserver
@@ -18,9 +19,13 @@ https://github.com/Sonal0409/DevOpsCodeDemo.git
 Go to Devops Lab and setup Jenkins and tomcat:
 
 Install Tomcat Server on the lab
+
 Open the terminal on the lab, run below commands:
+
 sudo su –
+
 apt update
+
 apt install tomcat9 tomcat9-admin -y
 
 
@@ -39,5 +44,41 @@ There should not be any space before the line.
 Screenshot:
 
 <img width="895" height="581" alt="image" src="https://github.com/user-attachments/assets/ccf33a48-1b64-4667-bf0e-13929b680e35" />
-<img width="895" height="581" alt="image" src="https://github.com/user-attachments/assets/ccf33a48-1b64-4667-bf0e-13929b680e35" />
-<img width="895" height="581" alt="image" src="https://github.com/user-attachments/assets/ccf33a48-1b64-4667-bf0e-13929b680e35" />
+
+Save the file (:wq!)
+
+Open the server.xml file and change the connector port of tomcat
+
+        vim /etc/tomcat9/server.xml
+        
+Scroll down to the Connector port tag as shown below and change port number to 9090.
+
+Screenshot: 
+
+<img width="852" height="556" alt="image" src="https://github.com/user-attachments/assets/b19278e5-8697-4f21-a469-f1901a142f91" />
+
+Save the file:
+:wq!
+
+Open this script
+ vim /usr/libexec/tomcat9/tomcat-locate-java.sh
+
+Update as below 
+
+Updating the script this way adding the version 21 is solving the issue:
+
+------------------------------------------------------------------------------------------------------
+find_jdks() 
+{ 
+for java_version in 21 17 11 10 9 8 
+do
+------------------------------------------------------------------------------------------------
+
+Save the file.
+
+Restart tomcat
+
+# systemctl restart tomcat9
+
+To check tomcat is up and running
+
