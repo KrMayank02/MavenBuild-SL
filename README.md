@@ -284,8 +284,7 @@ War file deployed successfully on tomcat and the Application is running fine, pl
 
 <img width="954" height="472" alt="image" src="https://github.com/user-attachments/assets/94b3d1d5-ba2d-410b-9637-14ac600d3730" />
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-*********** Project gets completed ***************
+*********** **Project gets completed** ***************
 
