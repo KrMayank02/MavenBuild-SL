@@ -182,9 +182,108 @@ pipeline{
 
 -----------------------------------------------------------------------------------------------------
 
+Save and run it
+
+Click on stages to see the execution. The Job executed successfully.
+
+Add a trigger on the Jenkins job, so that it can run from another script. 
+
+Go to your deployment Job → click on configure → go to trigger section -> select the last trigger→ give token as token1
+
+<img width="915" height="299" alt="image" src="https://github.com/user-attachments/assets/6a5ad985-84ee-4ebe-b089-fbb5f60ded13" />
 
 
+Copy this URL:
+
+ JENKINS_URL/job/deployment-pipeline/build?token=TOKEN_NAME
+
+Add to this URL:
+
+http://localhost:8080/job/deployment-pipeline/build?token=token1
+
+Now the job is ready to be triggered from a terminal or from a remote script:
+
+Go to the lab terminal execute the below command
+
+curl -l -u admin:Root123$ http://localhost:8080/job/deployment-pipeline/build?token=token1
+
+Check that the pipeline job is executed on Jenkins.
+
+Screenshot:
+
+<img width="925" height="460" alt="image" src="https://github.com/user-attachments/assets/e726beeb-1208-44c8-8bcd-309f55594695" />
 
 
+GITHUB Action workflow:
 
+=======================================
+
+Fork the repository:
+
+https://github.com/ORG-05-June-2025-project01/MavenBuild-SL.git
+
+
+After forking the repo→ click on Actions → click on  set up a workflow yourself 
+
+Add below code and make changes for host and SSH command:
+
+-------------------------------------------------------------------------------------------------------------
+name: CI-CD using Maven and Tomcat
+on:
+ push:  # run when there is commit to repo
+ workflow_dispatch:  # run manually
+jobs:
+ CI-CDjob:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Clone the repo on ubuntu server
+      uses: actions/checkout@v4
+    - name: Install Java and maven on ubuntu server
+      uses: actions/setup-java@v4
+      with:
+       distribution: 'temurin'
+       java-version: '11'
+       cache: 'maven'
+    - name: Build the code 
+      run: mvn package
+    - name: Connect to Lab machine and trigger a Jenkins job 
+      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+      with:
+        host: '18.209.104.16'
+        user: 'labuser'
+        pass: 'Nuvelabs123$'
+        port: 22
+        connect_timeout: 10s
+        first_ssh: |
+          curl -l -u admin:Root123$ http://localhost:8080/job/deployment-pipeline/build?token=token1
+
+-----------------------------------------------------------------------------------------------------
+
+
+Commit the changes.
+
+Screenshot:
+
+
+<img width="950" height="448" alt="image" src="https://github.com/user-attachments/assets/56e872ae-bfac-4c46-b752-6c7f39aae87e" />
+
+
+Click on Actions → see the Workflow execution:
+All the stages of the Workflow executed successfully, pls see below 
+
+<img width="938" height="456" alt="image" src="https://github.com/user-attachments/assets/55d85a9c-9d39-4229-8f2b-e4599e8ded42" />
+
+Jenkins Pipeline job got triggered from GitHub Actions pipeline, pls see Console Screenshots:
+
+<img width="913" height="543" alt="image" src="https://github.com/user-attachments/assets/716504da-e66a-4d94-a283-6370623d8714" />
+
+
+<img width="917" height="433" alt="image" src="https://github.com/user-attachments/assets/552e398b-4abc-4ac1-b672-720022e1ec1c" />
+
+War file deployed successfully on tomcat and the Application is running fine, pls see below screenshot:
+
+<img width="954" height="472" alt="image" src="https://github.com/user-attachments/assets/94b3d1d5-ba2d-410b-9637-14ac600d3730" />
+
+
+*********** Project gets completed ***************
 
