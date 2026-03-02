@@ -228,34 +228,8 @@ After forking the repo→ click on Actions → click on  set up a workflow yours
 Add below code and make changes for host and SSH command:
 
 -------------------------------------------------------------------------------------------------------------
-name: CI-CD using Maven and Tomcat
-on:
- push:  # run when there is commit to repo
- workflow_dispatch:  # run manually
-jobs:
- CI-CDjob:
-   runs-on: ubuntu-latest
-   steps:
-    - name: Clone the repo on ubuntu server
-      uses: actions/checkout@v4
-    - name: Install Java and maven on ubuntu server
-      uses: actions/setup-java@v4
-      with:
-       distribution: 'temurin'
-       java-version: '11'
-       cache: 'maven'
-    - name: Build the code 
-      run: mvn package
-    - name: Connect to Lab machine and trigger a Jenkins job 
-      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-      with:
-        host: '18.209.104.16'
-        user: 'labuser'
-        pass: 'Nuvelabs123$'
-        port: 22
-        connect_timeout: 10s
-        first_ssh: |
-          curl -l -u admin:Root123$ http://localhost:8080/job/deployment-pipeline/build?token=token1
+
+github-actions-workflow.txt
 
 -----------------------------------------------------------------------------------------------------
 
@@ -269,6 +243,7 @@ Screenshot:
 
 
 Click on Actions → see the Workflow execution:
+
 All the stages of the Workflow executed successfully, pls see below 
 
 <img width="938" height="456" alt="image" src="https://github.com/user-attachments/assets/55d85a9c-9d39-4229-8f2b-e4599e8ded42" />
@@ -283,6 +258,8 @@ Jenkins Pipeline job got triggered from GitHub Actions pipeline, pls see Console
 War file deployed successfully on tomcat and the Application is running fine, pls see below screenshot:
 
 <img width="954" height="472" alt="image" src="https://github.com/user-attachments/assets/94b3d1d5-ba2d-410b-9637-14ac600d3730" />
+
+
 
 
 *********** Project gets completed ***************
