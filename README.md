@@ -300,9 +300,9 @@ Screenshot:
 ------------------------------------------------------------------------------------------------------------------------
 
 
-Click on Actions → see the Workflow execution:
+Click on Actions → see the Workflow execution
 
-All the stages of the Workflow executed successfully, pls see below 
+All the stages of the Workflow executed successfully, pls see below:
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -310,10 +310,27 @@ All the stages of the Workflow executed successfully, pls see below
 
 ------------------------------------------------------------------------------------------------------------------------
 
+<img width="958" height="383" alt="image" src="https://github.com/user-attachments/assets/f7d5ba70-18d9-4894-934d-14ebad04c67f" />
+
+------------------------------------------------------------------------------------------------------------------------
+
+<img width="947" height="429" alt="image" src="https://github.com/user-attachments/assets/65aa604c-dbdf-4d86-a9c6-e77dea47c5ff" />
+
+-------------------------------------------------------------------------------------------------------------------------
+
+<img width="898" height="657" alt="image" src="https://github.com/user-attachments/assets/eee2b039-9655-4702-92f4-0f72ebdaa223" />
+
+-------------------------------------------------------------------------------------------------------------------------
+
 Jenkins Pipeline job got triggered from GitHub Actions pipeline, pls see Console Screenshots:
 
 
 <img width="913" height="543" alt="image" src="https://github.com/user-attachments/assets/716504da-e66a-4d94-a283-6370623d8714" />
+
+-------------------------------------------------------------------------------------------------------------------------
+
+<img width="929" height="327" alt="image" src="https://github.com/user-attachments/assets/f7c50a5f-3734-4bb4-a9fd-245994549cb9" />
+
 
 ------------------------------------------------------------------------------------------------------------------------
 
