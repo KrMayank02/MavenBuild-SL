@@ -37,11 +37,7 @@ The following tasks outline the process of implementing CI/CD using GitHub Actio
 
 ## Output Result Screenshots:
 
-JAVA Code repository on GitHub:
-
-https://github.com/Sonal0409/DevOpsCodeDemo.git
-
-Go to Devops Lab and setup Jenkins and tomcat:
+**Go to Devops Lab and setup Jenkins and tomcat:**
 
 Install Tomcat Server on the lab
 
@@ -54,7 +50,7 @@ apt update
 apt install tomcat9 tomcat9-admin -y
 
 
-Update user information for tomcat:
+**Update user information for tomcat:**
 
 vim /etc/tomcat9/tomcat-users.xml
 
@@ -66,9 +62,11 @@ paste the below line:
 
 There should not be any space before the line.
 
-Screenshot:
+-----------------------------------------------------------------------------------------------------------------------------------
 
 <img width="895" height="581" alt="image" src="https://github.com/user-attachments/assets/ccf33a48-1b64-4667-bf0e-13929b680e35" />
+
+-------------------------------------------------------------------------------------------------------------------------------------
 
 Save the file (:wq!)
 
@@ -78,9 +76,11 @@ Open the server.xml file and change the connector port of tomcat
         
 Scroll down to the Connector port tag as shown below and change port number to 9090.
 
-Screenshot: 
+-------------------------------------------------------------------------------------------------------------------------------------
 
 <img width="852" height="556" alt="image" src="https://github.com/user-attachments/assets/b19278e5-8697-4f21-a469-f1901a142f91" />
+
+------------------------------------------------------------------------------------------------------------------------------------
 
 Save the file:
 :wq!
@@ -93,6 +93,7 @@ Update as below
 Updating the script this way adding the version 21 is solving the issue:
 
 ------------------------------------------------------------------------------------------------------
+
 find_jdks() 
 
 {
@@ -101,7 +102,7 @@ for java_version in 21 17 11 10 9 8
 
 do
 
-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 
 Save the file.
 
@@ -113,10 +114,14 @@ To check tomcat is up and running
 
 Go to browser and type localhost:9090
 
+---------------------------------------------------------------------------------------------------------------------------
+
 <img width="965" height="322" alt="image" src="https://github.com/user-attachments/assets/a2b9123f-5031-4910-98db-a76e725eb21e" />
 
+------------------------------------------------------------------------------------------------------------------------------
 
-Go to Browser and give http://localhost:8080 
+
+Go to Browser and enter http://localhost:8080 
 
 This will launch Jenkins
 
@@ -128,14 +133,22 @@ You will be on Jenkins dashboard
 
 Manage Jenkins → Plugins -> Updates -> click on top most checkbox -> click on update
 
+--------------------------------------------------------------------------------------------------------------------------
+
 <img width="943" height="261" alt="image" src="https://github.com/user-attachments/assets/ee34f520-fc3a-4956-be5d-235c1891afdf" />
+
+--------------------------------------------------------------------------------------------------------------------------
 
 Click on Available plugins -> search for Deploy to container plugin → click on check box and click on install
 
+--------------------------------------------------------------------------------------------------------------------------
+
 <img width="955" height="240" alt="image" src="https://github.com/user-attachments/assets/4a962591-a157-43ce-a279-f14080d16f08" />
 
+--------------------------------------------------------------------------------------------------------------------------
 
-In the browser terminal → give: localhost:8080/restart 
+
+In the browser terminal → enter: localhost:8080/restart 
 
 Press enter.
 
@@ -147,7 +160,8 @@ Username: admin
 
 Password: Root123$
 
-===========
+---------------------------------------------------------------------------------------------------------------------------
+
 Go to manage jenkins → tools → scroll to bottom→ maven→ click on add maven→ give name as mymaven → save the page
 
 ADD tomcat credentials in Jenkins:
@@ -162,15 +176,26 @@ Give id: tomcatid
 
 Give description: tomcatid
 
+---------------------------------------------------------------------------------------------------------------------
+
+<img width="931" height="293" alt="image" src="https://github.com/user-attachments/assets/1cbe5403-b0b2-46e5-a6c0-11e47067e93d" />
+
+-------------------------------------------------------------------------------------------------------------------------
+
+<img width="923" height="290" alt="image" src="https://github.com/user-attachments/assets/c2fa14c9-3fb8-4741-a7b7-206972a7526b" />
+
+-------------------------------------------------------------------------------------------------------------------------
+
 Jenkins tomcat deployment pipeline
 
-Create a new job →Give name as deployment-pipeline 
+Create a new job → Give name as deployment-pipeline 
 
-select pipeline project →press ok → 
+select pipeline project → press ok → 
 
 click on pipeline tab → give below code:
 
-----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+
 pipeline{
     
     agent any
@@ -205,7 +230,7 @@ pipeline{
     }
     }
 
------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 
 Save and run it
 
@@ -215,8 +240,11 @@ Add a trigger on the Jenkins job, so that it can run from another script.
 
 Go to your deployment Job → click on configure → go to trigger section -> select the last trigger→ give token as token1
 
+-----------------------------------------------------------------------------------------------------------------------------
+
 <img width="915" height="299" alt="image" src="https://github.com/user-attachments/assets/6a5ad985-84ee-4ebe-b089-fbb5f60ded13" />
 
+-------------------------------------------------------------------------------------------------------------------------------
 
 Copy this URL:
 
@@ -236,17 +264,18 @@ Check that the pipeline job is executed on Jenkins.
 
 Screenshot:
 
+------------------------------------------------------------------------------------------------------------------------------------
+
 <img width="925" height="460" alt="image" src="https://github.com/user-attachments/assets/e726beeb-1208-44c8-8bcd-309f55594695" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 GITHUB Action workflow:
 
 =======================================
 
-Fork the repository:
-
-https://github.com/ORG-05-June-2025-project01/MavenBuild-SL.git
-
+Fork the github repository:
 
 After forking the repo→ click on Actions → click on  set up a workflow yourself 
 
@@ -254,31 +283,44 @@ Add below code and make changes for host and SSH command:
 
 -------------------------------------------------------------------------------------------------------------
 
-github-actions-workflow.txt
+**github-actions-workflow.txt**
 
------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
 
 
 Commit the changes.
 
 Screenshot:
 
+----------------------------------------------------------------------------------------------------------------------
+
 
 <img width="950" height="448" alt="image" src="https://github.com/user-attachments/assets/56e872ae-bfac-4c46-b752-6c7f39aae87e" />
+
+------------------------------------------------------------------------------------------------------------------------
 
 
 Click on Actions → see the Workflow execution:
 
 All the stages of the Workflow executed successfully, pls see below 
 
+------------------------------------------------------------------------------------------------------------------------
+
 <img width="938" height="456" alt="image" src="https://github.com/user-attachments/assets/55d85a9c-9d39-4229-8f2b-e4599e8ded42" />
+
+------------------------------------------------------------------------------------------------------------------------
 
 Jenkins Pipeline job got triggered from GitHub Actions pipeline, pls see Console Screenshots:
 
+
 <img width="913" height="543" alt="image" src="https://github.com/user-attachments/assets/716504da-e66a-4d94-a283-6370623d8714" />
+
+------------------------------------------------------------------------------------------------------------------------
 
 
 <img width="917" height="433" alt="image" src="https://github.com/user-attachments/assets/552e398b-4abc-4ac1-b672-720022e1ec1c" />
+
+------------------------------------------------------------------------------------------------------------------------
 
 War file deployed successfully on tomcat and the Application is running fine, pls see below screenshot:
 
@@ -286,5 +328,5 @@ War file deployed successfully on tomcat and the Application is running fine, pl
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-*********** **Project gets completed** ***************
+**Hence, The Project has been designed to implement a CI/CD Pipeline using GitHub Actions for Code Checkout, build, test and for invoking the deployment of a Java application as a Jenkins job using Tomcat Apache.**
 
